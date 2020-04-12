@@ -13,32 +13,33 @@ class MyApp extends StatelessWidget {
       title: 'Foxgram',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          primarySwatch: Colors.blue,
+        primarySwatch: Colors.blue,
       ),
       home: MyHomePage(),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget{
+class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
         elevation: 0.0,
-        title: Text("FMS - Foxconn Manager System", style: TextStyle(fontSize: 18)),
+        title: Text("FMS - Foxconn Manager System",
+            style: TextStyle(fontSize: 18, color: textTitleFuturistic)),
         centerTitle: true,
-        backgroundColor: drawerBackgroundColor,
+        //backgroundColor: drawerBackgroundColor,
+        backgroundColor: backGroundColorFuturistic,
       ),
-      // drawer: CollapsingNavigationDrawer(),// deste jeito consigo fazer o gestos para abrir e fechar
+      ///drawer: CollapsingNavigationDrawer(),// deste jeito consigo fazer o gestos para abrir e fechar
       //usando body o menu lateral vai ficar fixo de lado.
       body: Stack(
         children: <Widget>[
-          Container(color: Colors.white,),
+          Container(color: Colors.white),            
           CollapsingNavigationDrawer()
         ],
       ),
     );
   }
-
 }

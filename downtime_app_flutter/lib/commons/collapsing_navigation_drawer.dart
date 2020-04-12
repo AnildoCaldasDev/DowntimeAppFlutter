@@ -13,8 +13,8 @@ class CollapsingNavigationDrawer extends StatefulWidget {
 
 class CollapsingNavigationDrawerState extends State<CollapsingNavigationDrawer>
     with SingleTickerProviderStateMixin {
-  double maxWidth = 220;
-  double minWidth = 70;
+  double maxWidth = 250;
+  double minWidth = 50;
   bool isCollapsed = true;
   AnimationController _animationController;
   Animation<double> widthAnimation;
@@ -24,7 +24,7 @@ class CollapsingNavigationDrawerState extends State<CollapsingNavigationDrawer>
   void initState() {
     super.initState();
     _animationController =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 500));
+        AnimationController(vsync: this, duration: Duration(milliseconds: 200));
     widthAnimation = Tween<double>(begin: maxWidth, end: minWidth)
         .animate(_animationController);
   }
@@ -41,10 +41,10 @@ class CollapsingNavigationDrawerState extends State<CollapsingNavigationDrawer>
       elevation: 80.0,
       child: Container(
       width: widthAnimation.value,
-      color: drawerBackgroundColor,
+     // color: drawerBackgroundColor,
+      color: backGroundColorFuturistic,
       child: Column(
         children: <Widget>[
-          //SizedBox(height: 50.0),
           CollapsingListTile(
             title: 'Anildo Caldas',
             icon: Icons.person,
@@ -57,7 +57,7 @@ class CollapsingNavigationDrawerState extends State<CollapsingNavigationDrawer>
                 return Divider(height: 12.0);
               },
               itemBuilder: (context, counter) {
-                return CollapsingListTile(
+                return CollapsingListTile(                  
                     onTap: (){
                       setState(() {
                         currentSelectedIndex = counter;
@@ -85,8 +85,9 @@ class CollapsingNavigationDrawerState extends State<CollapsingNavigationDrawer>
               child: AnimatedIcon(
                   icon: AnimatedIcons.close_menu,
                   progress: _animationController,
-                  color: Colors.white,
-                  size: 40.0)),
+                  color: Colors.white,                
+                  size: 30.0)),
+                  SizedBox(height: 5.0),
         ],
       ),
     ));
