@@ -13,17 +13,18 @@ class CollapsingNavigationDrawer extends StatefulWidget {
 
 class CollapsingNavigationDrawerState extends State<CollapsingNavigationDrawer>
     with SingleTickerProviderStateMixin {
-  double maxWidth = 250;
-  double minWidth = 60;
-  bool isCollapsed = false;
+  double maxWidth = 220;
+  double minWidth = 70;
+  bool isCollapsed = true;
   AnimationController _animationController;
   Animation<double> widthAnimation;
+  int currentSelectedIndex = 0;
 
   @override
   void initState() {
     super.initState();
-    _animationController = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 500));
+    _animationController =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 500));
     widthAnimation = Tween<double>(begin: maxWidth, end: minWidth)
         .animate(_animationController);
   }
@@ -36,24 +37,37 @@ class CollapsingNavigationDrawerState extends State<CollapsingNavigationDrawer>
   }
 
   Widget getWidget(context, widget) {
-    return Container(
+    return Material(
+      elevation: 80.0,
+      child: Container(
       width: widthAnimation.value,
       color: drawerBackgroundColor,
       child: Column(
         children: <Widget>[
-          SizedBox(height: 50.0),
+          //SizedBox(height: 50.0),
           CollapsingListTile(
             title: 'Anildo Caldas',
             icon: Icons.person,
             animationController: _animationController,
           ),
+          Divider(color: Colors.grey, height: 10.0),
           Expanded(
-            child: ListView.builder(
+            child: ListView.separated(
+              separatorBuilder: (context, counter) {
+                return Divider(height: 12.0);
+              },
               itemBuilder: (context, counter) {
                 return CollapsingListTile(
+                    onTap: (){
+                      setState(() {
+                        currentSelectedIndex = counter;
+                      });
+                    },
                     title: navigationItems[counter].title,
                     icon: navigationItems[counter].icon,
-                    animationController: _animationController);
+                    animationController: _animationController,
+                    isSelected: currentSelectedIndex == counter
+                    );
               },
               itemCount: navigationItems.length,
             ),
@@ -72,9 +86,9 @@ class CollapsingNavigationDrawerState extends State<CollapsingNavigationDrawer>
                   icon: AnimatedIcons.close_menu,
                   progress: _animationController,
                   color: Colors.white,
-                  size: 40.0)),          
+                  size: 40.0)),
         ],
       ),
-    );
+    ));
   }
 }

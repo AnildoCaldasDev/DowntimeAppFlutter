@@ -1,3 +1,4 @@
+import 'package:downtime_app_flutter/theme.dart';
 import 'package:flutter/material.dart';
 
 import 'commons/collapsing_navigation_drawer.dart';
@@ -24,10 +25,19 @@ class MyHomePage extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
-        title: Text("#...Foxgram...#"),
+        elevation: 0.0,
+        title: Text("FMS - Foxconn Manager System", style: TextStyle(fontSize: 18)),
         centerTitle: true,
+        backgroundColor: drawerBackgroundColor,
       ),
-      drawer: CollapsingNavigationDrawer(),
+      // drawer: CollapsingNavigationDrawer(),// deste jeito consigo fazer o gestos para abrir e fechar
+      //usando body o menu lateral vai ficar fixo de lado.
+      body: Stack(
+        children: <Widget>[
+          Container(color: Colors.white,),
+          CollapsingNavigationDrawer()
+        ],
+      ),
     );
   }
 
