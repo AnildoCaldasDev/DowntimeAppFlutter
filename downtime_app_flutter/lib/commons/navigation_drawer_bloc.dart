@@ -16,5 +16,6 @@ class NavigationDrawerBloc {
   void dispose() {
     navigationController.close();
   }
-
 }
+
+ final bloc = NavigationDrawerBloc();

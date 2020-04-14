@@ -1,5 +1,5 @@
 class NavigationProvider {
-  String currentNavigation = "Home";
+  String currentNavigation = "home";
 
   void updateNavigation(String navigation) {
     currentNavigation = navigation;

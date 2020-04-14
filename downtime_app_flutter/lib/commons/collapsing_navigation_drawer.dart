@@ -1,3 +1,4 @@
+import 'package:downtime_app_flutter/commons/navigation_drawer_bloc.dart';
 import 'package:downtime_app_flutter/model/navigation_model.dart';
 import 'package:downtime_app_flutter/theme.dart';
 import 'package:flutter/material.dart';
@@ -5,6 +6,10 @@ import 'package:flutter/material.dart';
 import 'collapsing_list_tile.dart';
 
 class CollapsingNavigationDrawer extends StatefulWidget {
+
+  final NavigationDrawerBloc bloc;
+  CollapsingNavigationDrawer({ @required this.bloc});
+  
   @override
   CollapsingNavigationDrawerState createState() {
     return new CollapsingNavigationDrawerState();
@@ -45,6 +50,7 @@ class CollapsingNavigationDrawerState extends State<CollapsingNavigationDrawer>
       color: backGroundColorFuturistic,
       child: Column(
         children: <Widget>[
+          SizedBox(height: 30.0),
           CollapsingListTile(
             title: 'Anildo Caldas',
             icon: Icons.person,
@@ -60,8 +66,12 @@ class CollapsingNavigationDrawerState extends State<CollapsingNavigationDrawer>
                 return CollapsingListTile(                  
                     onTap: (){
                       setState(() {
-                        currentSelectedIndex = counter;
+                        currentSelectedIndex = counter;  
+                         Navigator.of(context).pop();
+                         bloc.updateNavigation(navigationItems[counter].router);                      
                       });
+                      // Navigator.of(context).pop();
+                      // bloc.updateNavigation(navigationItems[counter].router);
                     },
                     title: navigationItems[counter].title,
                     icon: navigationItems[counter].icon,
@@ -72,22 +82,22 @@ class CollapsingNavigationDrawerState extends State<CollapsingNavigationDrawer>
               itemCount: navigationItems.length,
             ),
           ),
-          SizedBox(height: 10.0),
-          InkWell(
-              onTap: () {
-                setState(() {
-                  isCollapsed = !isCollapsed;
-                  isCollapsed
-                      ? _animationController.forward()
-                      : _animationController.reverse();
-                });
-              },
-              child: AnimatedIcon(
-                  icon: AnimatedIcons.close_menu,
-                  progress: _animationController,
-                  color: Colors.white,                
-                  size: 30.0)),
-                  SizedBox(height: 5.0),
+          //SizedBox(height: 10.0),
+          // InkWell(
+          //     onTap: () {
+          //       setState(() {
+          //         isCollapsed = !isCollapsed;
+          //         isCollapsed
+          //             ? _animationController.forward()
+          //             : _animationController.reverse();
+          //       });
+          //     },
+          //     child: AnimatedIcon(
+          //         icon: AnimatedIcons.close_menu,
+          //         progress: _animationController,
+          //         color: Colors.white,                
+          //         size: 30.0)),
+                 // SizedBox(height: 5.0),
         ],
       ),
     ));
