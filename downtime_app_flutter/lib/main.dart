@@ -1,6 +1,8 @@
 import 'package:downtime_app_flutter/pages/dashboards.dart';
 import 'package:downtime_app_flutter/pages/downtime.dart';
 import 'package:downtime_app_flutter/pages/home.dart';
+import 'package:downtime_app_flutter/pages/mask_delivery.dart';
+import 'package:downtime_app_flutter/pages/todo_list.dart';
 import 'package:downtime_app_flutter/theme.dart';
 import 'package:flutter/material.dart';
 import 'commons/collapsing_navigation_drawer.dart';
@@ -8,7 +10,6 @@ import 'commons/navigation_drawer_bloc.dart';
 
 //Fonte de base do drwaer com gesture: https://github.com/ashishrawat2911/flutter_navigation_drawer_bloc/blob/master/lib/src/ui/my_home_page.dart
 //Fonte do navigationBloc: http://flutterdevs.com/blog/managing-the-state-of-a-widget-using-bloc-flutter/
-
 
 void main() => runApp(MyApp());
 
@@ -56,6 +57,14 @@ class MyHomePage extends StatelessWidget {
 
             case "downtimes":
               return Downtime();
+              break;
+
+            case "todolist":
+              return TodoList();
+              break;
+
+            case "maskdelivery":
+              return MaskDelivery();
               break;
 
             default:
