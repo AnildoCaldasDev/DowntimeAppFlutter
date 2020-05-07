@@ -23,9 +23,7 @@ List<NavigationModel> navigationItems = [
   // NavigationModel(title: "Settings", icon: Icons.settings, router:  NavigationRouterType.settings),
   NavigationModel(title: "Home", icon: Icons.home, router: "home"),
   NavigationModel(
-      title: "Access Control",
-      icon: Icons.account_box,
-      router: "accesscontrol"),
+      title: "Aula Flutter", icon: Icons.account_box, router: "accesscontrol"),
   NavigationModel(
       title: "Dashboards", icon: Icons.insert_chart, router: "dashboards"),
   NavigationModel(
@@ -39,7 +37,11 @@ List<NavigationModel> navigationItems = [
       title: "Mask Delivery", icon: Icons.face, router: "maskdelivery"),
   NavigationModel(title: "MMS", icon: Icons.dvr, router: "mms"),
   NavigationModel(
-      title: "TI-Corporativa", icon: Icons.person_pin, router: "ticorporativa"),
+      title: "Repository Pattern",
+      icon: Icons.pages,
+      router: "repositorypattern"),
+  NavigationModel(
+      title: "Anatomy of Flutter", icon: Icons.pages, router: "anatomyflutter"),
   NavigationModel(title: "Settings", icon: Icons.settings, router: "settings"),
 ];
 
