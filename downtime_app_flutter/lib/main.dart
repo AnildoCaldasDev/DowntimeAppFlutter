@@ -107,78 +107,49 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.teal,
         body: SafeArea(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: Column(
             children: <Widget>[
-              Container(
-                width: 100,
-                color: Colors.white,
+              CircleAvatar(
+                radius: 50,
+                backgroundImage: AssetImage("images/anildocaldasavatar.jpg"),
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Container(
-                    height: 100,
-                    width: 100,
-                    color: Colors.blue,
-                  ),
-                  Container(
-                    height: 100,
-                    width: 100,
-                    color: Colors.red,
-                ),
-                ],
-              ),
-              Container(     
-                width: 100,
-                color: Colors.red,    
-              ),
+              Text(
+                "Anildo Caldas",
+                style: TextStyle(
+                    fontSize: 40.0,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white),
+              )
             ],
           ),
-          // child: Column(
-          //   //verticalDirection: VerticalDirection.down,
-          //   //mainAxisAlignment: MainAxisAlignment.center,
-          //   //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          //   crossAxisAlignment: CrossAxisAlignment.stretch,
+
+          // child: Row(
+          //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
           //   children: <Widget>[
           //     Container(
-          //       height: 100,
           //       width: 100,
           //       color: Colors.white,
-          //       child: Text("Container 1"),
-          //       //margin: EdgeInsets.only(top: 10),
+          //     ),
+          //     Column(
+          //       mainAxisAlignment: MainAxisAlignment.center,
+          //       children: <Widget>[
+          //         Container(
+          //           height: 100,
+          //           width: 100,
+          //           color: Colors.yellow,
+          //         ),
+          //         Container(
+          //           height: 100,
+          //           width: 100,
+          //           color: Colors.green,
+          //         ),
+          //       ],
           //     ),
           //     Container(
-          //       height: 100,
-          //       width: 100,
-          //       color: Colors.blue,
-          //       child: Text("Container 2"),
-          //       //margin: EdgeInsets.only(top: 10),
-          //     ),
-          //     Container(
-          //       height: 100,
           //       width: 100,
           //       color: Colors.red,
-          //       child: Text("Container 3"),
-          //       //margin: EdgeInsets.only(top: 10),
           //     ),
-          //     // Container(
-          //     //   width: double.infinity,
-          //     //   height: 10,
-          //     //   color: Colors.grey,
-          //     // )
           //   ],
-          // ),
-          // child: Container(
-          //   height: 100,
-          //   width: 100,
-          //   color: Colors.white,
-          //   margin: EdgeInsets.only(left: 30),
-          //   padding: EdgeInsets.all(10),
-          //   //margin: EdgeInsets.fromLTRB(30, 60, 90, 20),
-          //   //margin: EdgeInsets.all(20),
-          //   //margin: EdgeInsets.symmetric(vertical: 40, horizontal: 10),
-          //   child: Text("Text teste"),
           // ),
         ),
       ),
