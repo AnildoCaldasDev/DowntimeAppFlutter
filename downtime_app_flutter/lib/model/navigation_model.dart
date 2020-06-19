@@ -23,19 +23,13 @@ List<NavigationModel> navigationItems = [
   // NavigationModel(title: "Settings", icon: Icons.settings, router:  NavigationRouterType.settings),
   NavigationModel(title: "Home", icon: Icons.home, router: "home"),
   NavigationModel(
-      title: "Aula Flutter", icon: Icons.account_box, router: "accesscontrol"),
-  NavigationModel(
       title: "Dashboards", icon: Icons.insert_chart, router: "dashboards"),
   NavigationModel(
-      title: "Downtimes", icon: Icons.av_timer, router: "downtimes"),
-  // NavigationModel(
-  //     title: "Foxzilla", icon: Icons.perm_data_setting, router: "foxzilla"),
-  NavigationModel(title: "Inventory", icon: Icons.domain, router: "inventory"),
+      title: "Tela de Chat", icon: Icons.av_timer, router: "chatapp"),
   NavigationModel(
       title: "Lista de Tarefas", icon: Icons.list, router: "todolist"),
   NavigationModel(
       title: "Mask Delivery", icon: Icons.face, router: "maskdelivery"),
-  NavigationModel(title: "MMS", icon: Icons.dvr, router: "mms"),
   NavigationModel(
       title: "Repository Pattern",
       icon: Icons.pages,
